@@ -10,7 +10,7 @@ header {
 	width: 100%;
 	z-index: 1;
 
-	@include breakpoint(375px, 'max') {
+	@include breakpoint(560px, 'max') {
 		background: #fff;
 		padding: 5px 0;
 		position: relative;
@@ -31,7 +31,7 @@ header {
 			height: 40px;
 			width: 110px;
 
-			@include breakpoint(375px, 'max') {
+			@include breakpoint(560px, 'max') {
 				height: 30px;
 				width: 80px;
 			}
@@ -42,6 +42,8 @@ header {
 		color: #1e1e1e;
 		font-weight: bold;
 		margin-right: 10px;
+
+		@include breakpoint(560px, 'max') { max-height: 250px; }
 
 		.menu-item {
 			margin: 0 5px;
@@ -69,9 +71,9 @@ header {
 				width: 18px;
 			}
 
-			@include breakpoint(375px, 'max') {
+			@include breakpoint(560px, 'max') {
 				display: block;
-				margin: 10px 0;
+				margin: 18px 0;
 
 				&:first-child { margin-top: 0; }
 
@@ -79,7 +81,7 @@ header {
 			}
 		}
 
-		@include breakpoint(375px, 'max') {
+		@include breakpoint(560px, 'max') {
 			background: #fff;
 			display: none;
 			margin-right: 0;
@@ -130,6 +132,6 @@ header {
 			}
 		}
 
-		@include breakpoint(375px, 'max') { display: inline-block; }
+		@include breakpoint(560px, 'max') { display: inline-block; }
 	}
 }

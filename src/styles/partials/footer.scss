@@ -33,7 +33,7 @@ footer {
 			&:hover { color: #ff9f00; }
 		}
 
-		@include breakpoint(375px, 'max') { 
+		@include breakpoint(560px, 'max') { 
 			flex: 1 50%; 
 			margin: 10px 0;
 		}
@@ -48,7 +48,7 @@ footer {
 		.more { text-decoration: underline; }
 
 		.item {
-			@include breakpoint(375px, 'max') { 
+			@include breakpoint(560px, 'max') { 
 				flex: 1 100%; 
 				margin: 15px 0;
 			}
@@ -61,7 +61,7 @@ footer {
 			margin-bottom: 5px;
 			max-width: 280px;
 
-			@include breakpoint(375px, 'max') { max-width: 100%; }
+			@include breakpoint(560px, 'max') { max-width: 100%; }
 		}
 	}
 
@@ -86,11 +86,13 @@ footer {
 		.pagamento {
 			display: block;
 			height: 30px;
+			margin: 0 auto;
 			width: 300px;
 		}
 
 		.selos {
 			height: 40px;
+			margin: 0 auto;
 			width: 220px;
 		}
 	}

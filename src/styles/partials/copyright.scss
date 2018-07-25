@@ -13,7 +13,7 @@
 		display: inline-block;
 		margin: 0;
 
-		@include breakpoint(375px, 'max') { margin-top: 5px; }
+		@include breakpoint(560px, 'max') { margin-top: 5px; }
 
 		.item {
 			color: #666;
