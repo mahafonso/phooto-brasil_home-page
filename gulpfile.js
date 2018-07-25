@@ -1,22 +1,27 @@
 'use strict';
 
-var gulp		= require('gulp'),
-	$			= require('gulp-load-plugins')(),
-	del			= require('del'),
-	browserSync = require('browser-sync');
+var gulp				 = require('gulp'),
+	$					 = require('gulp-load-plugins')(),
+	del					 = require('del'),
+	sassLint 			 = require('gulp-sass-lint'),
+	sassPartialsImported = require('gulp-sass-partials-imported'),
+	cached 				 = require('gulp-cached'),
+	cssnano 			 = require('cssnano'),
+	cssMqpacker			 = require('css-mqpacker'),
+	browserSync 		 = require('browser-sync');
 	
 var paths = {
 	scripts: 'src/scripts/**/*.js',
-	styles: 'src/styles/**/*.scss',
-	images: 'src/images/**/*.{png,jpeg,jpg,gif}',
+	styles: 'src/styles/*.scss',
+	images: 'src/images/**/*.{png,jpeg,jpg,gif,ico}',
 	fonts:  'src/fonts/*',
 	extras: ['src/*.*'],
 	dest: {
-		scripts : 'dist/js',
-		styles: 'dist/css',
-		images: 'dist/img',
-		fonts: 'dist/fonts',
-		extras: 'dist'
+		scripts : 'build/js',
+		styles: 'build/css',
+		images: 'build/img',
+		fonts: 'build/fonts',
+		extras: 'build'
 	}
 };
 
@@ -39,16 +44,35 @@ gulp.task('scripts', ['lint'], function () {
 		.pipe(gulp.dest(paths.dest.scripts));
 });
 
-gulp.task('styles', function () {
+gulp.task('sassLint', function () {
 	return gulp.src(paths.styles)
-		.pipe($.plumber())
-		.pipe($.newer({dest: paths.dest.styles + 'style.css', ext: '.css'}))
-		.pipe($.rubySass({
-			noCache: true,
-			style:'compressed'
+		.pipe(cached('sassLinting'))
+		.pipe(sassLint({
+			options: {
+				'config-file': '.sass-lint.yml'
+			}
 		}))
-		.pipe($.autoprefixer('last 2 version'))
-		//.pipe($.csso())
+		.pipe(sassLint.format());
+	// .pipe(sassLint.failOnError());
+});
+
+gulp.task('styles', ['sassLint'], function () {
+	return gulp.src(paths.styles)
+		.pipe(sassPartialsImported('src/styles/'))
+		.pipe($.plumber())
+		.pipe($.newer(paths.dest.styles))
+		.pipe($.sass({
+			outputStyle:'compressed'
+		}))
+		.pipe($.util.env.production ? $.postcss([
+			cssnano({
+				zindex: false,
+				reduceIdents: false
+			}),
+			cssMqpacker()
+		]) : $.postcss([
+			cssMqpacker()
+		]))
 		.pipe(gulp.dest(paths.dest.styles));
 });
 
@@ -80,11 +104,11 @@ gulp.task('clean', function (cb) {
 	del(paths.dest.extras, cb);
 });
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('server', ['watch'], function () {
 	browserSync({
-		files: [ 'dist/**', '!dist/**/*.map' ],
+		files: [ 'build/**', '!build/**/*.map' ],
 		server:{
-			baseDir: ['dist','./']
+			baseDir: ['build','./']
 		},
 		//proxy: 'onthestop',
 		open: !$.util.env.no
@@ -93,12 +117,12 @@ gulp.task('serve', ['watch'], function () {
 
 gulp.task('watch', ['scripts', 'styles', 'images','fonts', 'extras'], function() {
 	gulp.watch(paths.scripts, ['scripts']);
-	gulp.watch(paths.styles, ['styles']);
+	gulp.watch('src/styles/**/*.scss', ['styles']);
 	gulp.watch(paths.images, ['images']);
 	gulp.watch(paths.fonts, ['fonts']);
 	gulp.watch(paths.extras, ['extras']);
 });
 
 gulp.task('default', ['clean'], function () {
-	gulp.start('serve');
+	gulp.start('server');
 });

@@ -1,0 +1,43 @@
+// ===============================================================
+/* CONFIG */
+// ===============================================================
+$base-font-family       : 'myFont', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$base-print-font-family : Georgia, 'Times New Roman', Times, serif !default;
+
+html, 
+body {
+	font-family: $base-font-family;
+	font-size: 16px;
+	height: 100%;
+	margin: 0;
+
+	font-smooth: always;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+
+	p {
+		font-family: $base-font-family;
+		margin: 0;
+		padding: 0;
+	}
+
+	span { font-family: $base-font-family; }
+
+	a,
+	a:visited, a:active, a:link {
+		color: inherit;
+		display: inline-block;
+		font-family: $base-font-family;
+		text-decoration: none;
+	}
+
+	ul, li {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&>iframe, &>object { display: none; }
+
+	* { box-sizing: border-box; }
+}

@@ -1,0 +1,35 @@
+// ===============================================================
+/* FONT */
+// ===============================================================
+@font-face {
+  font-family: 'myfont';
+  src: url('../fonts/myfont.eot?27253938');
+  src: url('../fonts/myfont.eot?27253938#iefix') format('embedded-opentype'),
+       url('../fonts/myfont.woff2?27253938') format('woff2'),
+       url('../fonts/myfont.woff?27253938') format('woff'),
+       url('../fonts/myfont.ttf?27253938') format('truetype'),
+       url('../fonts/myfont.svg?27253938#myfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*!
+ *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */@font-face{font-family:'FontAwesome';src:url('../fonts/fontawesome-webfont.eot?v=4.3.0');src:url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'),url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'),url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'),url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'),url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');font-weight:normal;font-style:normal}.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transform:translate(0, 0)}
+.fa-ul>li{position:relative}
+.pull-right{float:right}.pull-left{float:left}
+@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg);transform:rotate(359deg)}}
+.fa-search:before{content:"\f002"}
+.fa-heart:before{content:"\f004"}.fa-star:before{content:"\f005"}
+.fa-remove:before,.fa-close:before,.fa-times:before{content:"\f00d"}
+.fa-shopping-cart:before{content:"\f07a";margin-right: 3px;}
+.fa-twitter:before{content:"\f099"}.fa-facebook-f:before,.fa-facebook:before{content:"\f09a"}
+.fa-group:before,.fa-users:before{content:"\f0c0"}
+.fa-pinterest:before{content:"\f0d2"}
+.fa-google-plus:before{content:"\f0d5"}
+.fa-instagram:before{content:"\f16d"}
+.fa-cart-plus:before{content:"\f217"}
+.fa-youtube:before{content:"\f167"}
+.fa-angle-down:before{content:"\f107"}
+.fa-home:before{content:"\f015"}

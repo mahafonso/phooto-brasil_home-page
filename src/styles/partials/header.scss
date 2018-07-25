@@ -1,0 +1,135 @@
+// ===============================================================
+/* HEADER */
+// ===============================================================
+header {
+	background: transparent;
+	font-size: 11px;
+	padding: 20px 0;
+	position: absolute;
+	top: 30px;
+	width: 100%;
+	z-index: 1;
+
+	@include breakpoint(375px, 'max') {
+		background: #fff;
+		padding: 5px 0;
+		position: relative;
+		top: initial;
+	}
+
+	.wrapper {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.logo {
+		.logo-content { margin: 0; }
+
+		img {
+			height: 40px;
+			width: 110px;
+
+			@include breakpoint(375px, 'max') {
+				height: 30px;
+				width: 80px;
+			}
+		}
+	}
+
+	.menu {
+		color: #1e1e1e;
+		font-weight: bold;
+		margin-right: 10px;
+
+		.menu-item {
+			margin: 0 5px;
+			position: relative;
+			@include singleTransition(300);
+
+			&:first-child { margin-left: 0; }
+
+			&:last-child { margin-right: 0; }
+
+			&:hover { color: #ff9f00; }
+
+			.quantity {
+				background: #ff9f00;
+				border-radius: 100%;
+				color: #fff;
+				display: inline-block;
+				font-weight: bold;
+				height: 18px;
+				left: 10px;
+				padding-top: 1px;
+				position: absolute;
+				text-align: center;
+				top: -8px;
+				width: 18px;
+			}
+
+			@include breakpoint(375px, 'max') {
+				display: block;
+				margin: 10px 0;
+
+				&:first-child { margin-top: 0; }
+
+				&::last-child { margin-bottom: 0; }
+			}
+		}
+
+		@include breakpoint(375px, 'max') {
+			background: #fff;
+			display: none;
+			margin-right: 0;
+			position: absolute;
+			right: 0;
+			top: 42px;
+			z-index: 1;
+			padding: 5px 15px;
+			padding-right: 30px;
+		}
+	}
+
+	.open-menu-mobile {
+		@include singleTransition(300);
+		background: #ff9f00;
+		display: none;
+		height: 2px;
+		position: relative;
+		width: 15px;
+
+		&:before,
+		&:after {
+			@include singleTransition(300);
+			background: #ff9f00;
+			content: '';
+			height: 2px;
+			left: 0;
+			position: absolute;
+			top: 5px;
+			width: 15px;
+		}
+
+		&:before { top: -5px; }
+
+		&.opened {
+			background: transparent;
+
+			&:before {
+				top: 0;
+				-webkit-transform: rotate(-45deg);
+				transform: rotate(-45deg);
+			}
+
+			&:after {
+				top: 0;
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
+			}
+		}
+
+		@include breakpoint(375px, 'max') { display: inline-block; }
+	}
+}

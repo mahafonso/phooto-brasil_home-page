@@ -1,23 +1,38 @@
 {
-  "name": "lp-terra",
+  "name": "phooto-brasil",
   "devHost": "localhost",
   "version": "1.0.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "bower": "^1.8.4",
+    "clipboard": "^1.7.1",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.0.3",
+    "expose-loader": "^0.7.3",
+    "json-loader": "^0.5.4"
+  },
   "devDependencies": {
     "browser-sync": "^2.7.3",
     "del": "^0.1.3",
     "gulp": "^3.8.8",
     "gulp-autoprefixer": "^1.0.1",
+    "gulp-bump": "^2.7.0",
+    "gulp-cached": "^1.1.1",
     "gulp-csso": "^0.2.9",
     "gulp-imagemin": "^1.0.1",
     "gulp-jshint": "^1.8.5",
     "gulp-load-plugins": "^0.7.0",
-    "gulp-newer": "^0.3.0",
+    "gulp-newer": "^1.3.0",
     "gulp-plumber": "^0.6.6",
-    "gulp-ruby-sass": "^0.7.1",
+    "gulp-postcss": "^6.3.0",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-lint": "^1.3.2",
+    "gulp-sass-partials-imported": "^1.0.5",
     "gulp-uglifyjs": "^0.4.4",
     "gulp-util": "^3.0.1",
-    "jshint-stylish": "^1.0.0"
+    "jshint-stylish": "^1.0.0",
+    "webpack-stream": "^3.2.0"
   }
 }

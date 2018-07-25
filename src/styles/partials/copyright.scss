@@ -1,0 +1,83 @@
+// ===============================================================
+/* COPYRIGHT */
+// ===============================================================
+#copyright {
+	background: #2c2c2c;
+	color: #fff;
+	font-size: 11px;
+	padding: 10px 0;
+	text-align: center;
+	text-transform: uppercase;
+
+	.countries {
+		display: inline-block;
+		margin: 0;
+
+		@include breakpoint(375px, 'max') { margin-top: 5px; }
+
+		.item {
+			color: #666;
+			display: inline-block;
+			margin: 0 5px;
+			padding-left: 25px;
+			padding-right: 5px;
+			position: relative;
+			@include singleTransition(300);
+
+			&:hover { color: #ff9f00; }
+
+			&:after {
+				background: #fff;
+				content: '';
+				height: 10px;
+				position: absolute;
+				right: -5px;
+				top: 3px;
+				width: 1px;
+			}
+
+			&:before {
+				content: '';
+				height: 13px;
+				position: absolute;
+				left: 0;
+				top: 1px;
+				width: 20px;
+			}
+
+			&.brasil {
+				&:before { background: url('/img/flags/brasil.jpg') center center no-repeat; }
+			}
+
+			&.eua {
+				&:before { background: url('/img/flags/eua.jpg') center center no-repeat; }
+			}
+
+			&.mexico {
+				&:before { background: url('/img/flags/mexico.jpg') center center no-repeat; }
+			}
+
+			&.colombia {
+				&:before { background: url('/img/flags/colombia.jpg') center center no-repeat; }
+			}
+
+			&.argentina {
+				&:before { background: url('/img/flags/argentina.jpg') center center no-repeat; }
+			}
+
+			&.chile {
+				&:before { background: url('/img/flags/chile.jpg') center center no-repeat; }
+			}
+
+			&:last-child {
+				&:after { display: none; }
+			}
+		}
+	}
+
+	.copyright-txt {
+		display: block;
+		margin-top: 10px;
+		text-transform: initial;
+	}
+}

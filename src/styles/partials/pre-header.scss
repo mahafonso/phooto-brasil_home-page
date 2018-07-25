@@ -1,0 +1,41 @@
+// ===============================================================
+/* PRE-HEADER */
+// ===============================================================
+#pre-header {
+	background: #666;
+	border-bottom: 2px solid #ff9f00;
+	color: #fff;
+	font-size: 10px;
+
+	.wrapper {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding: 8px 0;
+	}
+
+	.message-highlight {
+		@include breakpoint(375px, 'max') {
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	.links {
+		[class*='icon']:not(.search) {
+			cursor: pointer;
+			
+			&:before { padding-right: 5px; }
+		}
+
+		@include breakpoint(375px, 'max') { 
+			display: flex;
+			justify-content: space-between;
+			margin-top: 10px; 
+			width: 100%;
+		}
+		
+		.sac { margin: 0 20px; }
+	}
+}

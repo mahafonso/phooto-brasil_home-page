@@ -1,0 +1,97 @@
+// ===============================================================
+/* FOOTER */
+// ===============================================================
+footer {
+	background: #777;
+	color: #fff;
+	font-size: 10px;
+	padding: 40px 0;
+	text-align: center;
+
+	.wrapper {
+		.item { margin: 5px 0; }
+
+		.title {
+			display: block;
+			font-weight: bold;
+			margin: 0 0 15px;
+			text-transform: uppercase;
+		}
+	}
+	
+
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.list-links {
+		.link {
+			@include singleTransition(300);
+
+			&:hover { color: #ff9f00; }
+		}
+
+		@include breakpoint(375px, 'max') { 
+			flex: 1 50%; 
+			margin: 10px 0;
+		}
+	}
+
+	.info {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 30px;
+
+		.more { text-decoration: underline; }
+
+		.item {
+			@include breakpoint(375px, 'max') { 
+				flex: 1 100%; 
+				margin: 15px 0;
+			}
+		}
+	}
+
+	.about {
+		.about-txt { 
+			font-size: 10px; 
+			margin-bottom: 5px;
+			max-width: 280px;
+
+			@include breakpoint(375px, 'max') { max-width: 100%; }
+		}
+	}
+
+	.social-networks {
+		[class^="icon-"] {
+			@include singleTransition(300);
+			background: #2c2c2c;
+			border-radius: 100%;
+			font-size: 20px;
+			height: 45px;
+			padding-top: 10px;
+			width: 45px;
+
+			&:hover {
+				background: #fff;
+				color: #ff9f00;
+			}
+		}
+	}
+
+	.payment {
+		.pagamento {
+			display: block;
+			height: 30px;
+			width: 300px;
+		}
+
+		.selos {
+			height: 40px;
+			width: 220px;
+		}
+	}
+}
